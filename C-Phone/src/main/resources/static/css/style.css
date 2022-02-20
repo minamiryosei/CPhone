@@ -1,0 +1,541 @@
+@charset "UTF-8";
+
+* {
+  margin:0; padding:0;
+}
+
+body{
+  background-color: #D7EEFF;
+  font-family: sans-serif;
+}
+
+/*
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+*/
+
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.btn,
+a.btn,
+button.btn {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 2.19rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.63em;
+  color: #212529;
+  border-radius: 0.31rem;
+}
+
+.oya_c_regi{
+  text-align: right;
+  margin:2% 5% 2% 0;
+}
+
+.c_regi-border {
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+}
+
+.c_regi-border:hover {
+  color: #fff;
+  background: #000;
+}
+
+#s_form{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#s_box{
+  outline: 0;
+  height: 40px;
+  padding: 0, 10px;
+  left: 0;
+  top: 0;
+  width: 500px;
+  border-radius: 2px;
+  background:  #eee;
+}
+
+#s_botton{
+  margin-left: 10px;
+  width: 80px;
+  height: 40px;
+  left: 280px;
+  top: 0;
+  border-radius: 2px;
+  background: #7fbfff;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  border: none;
+}
+
+#s_botton:hober{
+  background: #eee;
+  color: #7fbfff;
+}
+
+.c-list{
+  margin: 25px;
+}
+
+table{
+  width: 95%;
+  border-collapse:separate;
+  border-spacing: 0;
+}
+
+table th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+table th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 10%;
+  padding: 10px 0;
+}
+
+table td{
+  background-color: white;
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 10%;
+  padding: 10px 0;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+header {
+  height: 55px;
+  width: 100%;
+  padding: 15px 0;
+  background-color: #85b9dd;
+  color: white;
+}
+
+header .headline{
+    line-height: 50px;
+    float: left;
+    font-size: 30px;
+    margin-left: 100px;
+}
+.nav-list {
+    line-height: 50px;
+    float: right;
+    margin-left: 30px;
+    list-style: none;
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+/*header{
+
+}*/
+
+hr{
+  border-width: 3px;
+}
+h1{
+  font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+  text-align: center;
+}
+
+.align-light{
+    text-align: right;
+}
+
+.items{
+  margin-bottom: 5px;
+  margin-left: 20%;
+}
+
+input:required{
+  background: #ffcdd2;
+}
+input[type="email"]:invalid{
+  background: #ffcdd2;
+}
+input:valid{
+  background: transparent;
+}
+input:focus{
+  background: #DCEDC8;
+}
+
+.form-control{
+  width: 75%;
+  height: 23px;
+}
+
+.row{
+  margin: 20px 0;
+}
+
+.oya-btn{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-primary {
+  width: 100px;
+  height: 40px;
+  color: #fff;
+  background-color: #eb6100;
+  border-bottom: 5px solid #b84c00;
+}
+
+.btn-primary:hover {
+  margin-top: 3px;
+  color: #fff;
+  background: #f56500;
+  border-bottom: 2px solid #b84c00;
+}
+
+.btn-primary--radius {
+  border-radius: 1vh;
+}
+
+.btn-primary--shadow {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
+}
+
+.emp{
+  background-color: red;
+}
+
+.oya_box{
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.f_box{
+  text-align: center;
+  font-size: large;
+  width: 50%;
+  border: 1.5px solid #000;
+  margin: 10%;
+}
+
+.t_box{
+  text-align: center;
+  font-size: large;
+  width: 40%;
+  border: 1.5px solid #000;
+}
+
+.s_box{
+  text-align: center;
+  font-size: 35px;
+  width: 50%;
+  margin: 10%;
+}
+
+.oya_c_box{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.c_box{
+  text-align: center;
+  font-size: large;
+  width: 20%;
+  border: 1.5px solid #000;
+}
+
+.radio-inline{
+  margin-right: 20px;
+}
+
+
+.loginbox{
+	width: 330px;
+	height: 150px;
+	background: #fff;
+	color: #000;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 25px;
+	border-radius: 30px;
+}
+
+.logo{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+	left: 100px;
+	
+}
+
+.ttmm{
+	margin-bottom: 20px;
+}
+
+h1{
+	margin: 0;
+	padding: o 0 20px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.loginbox p{
+	margin: 0;
+	padding: o;
+	font-weight: bold;
+}
+
+.loginbox input{
+	width: 98%;
+	margin-bottom: 0px;
+}
+
+/*.loginbox input[type="text"], input[type="passwprd"]{
+	border: none;
+	border-bottom: 1px solid #000;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #000;
+	font-size: 16px;
+}*/
+
+.loginbox input[type="submit"]{
+	border: none;
+	outline: none;
+	height: 40px;
+
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	
+}
+
+.loginbox input[type="submit"]:hover{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+	
+}
+
+.loginbox a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000;
+	
+}
+
+.moji{
+	font-family: impact"";
+}
+
+.loginbox{
+	width: 330px;
+	height: 450px;
+	background: #fff;
+	color: #000;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 25px;
+	border-radius: 30px;
+	font-family: system-ui;
+}
+
+.loginbox2{
+	width: 330px;
+	height: 170px;
+	background: #fff;
+	color: #000;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);
+	box-sizing: border-box;
+	padding: 25px;
+	border-radius: 30px;
+	font-family: system-ui;
+}
+
+.logo{
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	position: absolute;
+	top: -50px;
+	left: 100px;
+	
+}
+
+.radioArea1 {
+	display: flex;
+	height: 20px;
+	
+}
+
+#administrator1{
+	width: auto;
+	margin-left: 60px;
+}
+#administrator2{
+	width: auto;
+	margin-left: 60px;
+}
+
+label {
+  display: block;
+  margin-bottom: 0px;
+}	
+
+h1{
+	margin: 0;
+	padding: 0 0 20px;
+	text-align: center;
+	font-size: 22px;
+}
+
+.loginbox p{
+	margin: 0;
+	padding: o;
+	font-weight: bold;
+}
+
+.loginbox input{
+	width: 98%;
+	margin-bottom: 20px;
+}
+
+.loginbox2 input{
+	width: 98%;
+	margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+	border: none;
+	border-bottom: 1px solid #000;
+	background: transparent;
+	outline: none;
+	height: 40px;
+	color: #000;
+	font-size: 16px;
+}
+
+.loginbox input[type="submit"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	
+}
+
+.loginbox2 input[type="submit"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	
+}
+
+.loginbox input[type="submit"]:hover
+{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+	
+}
+
+.loginbox2 input[type="submit"]:hover
+{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+	
+}
+
+.loginbox a{
+	text-decoration: none;
+	font-size: 12px;
+	line-height: 20px;
+	color: #000;
+	
+}
+
+.sex_radio{
+  display: flex;
+  align-items: center;
+}
