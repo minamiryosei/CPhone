@@ -3,10 +3,11 @@
  	<head>
 		<meta charset="UTF-8">
 		<title>ログイン</title>
-		<link rel="stylesheet" href="../static/css/style.css">
+		<!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+		<link th:href="@{/css/style.css}" rel="stylesheet"/>
 	</head>
 <body>
-	<header>
+<!-- 	<header>
 
   	<h1 class="headline">
       <a>C-Phone</a>
@@ -32,6 +33,19 @@
 			<input type="submit" name="" value="新規登録">
 			</form>
 			
-		</div>
+		</div> -->
+		   <div class="container">
+        <div class="card card-container">
+
+            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+            <p id="profile-name" class="profile-name-card"></p>
+            <form class="form-signin" role="form" id="login" th:action="@{/login}" method="post">
+                <span id="reauth-email" class="reauth-email"></span>
+                <input type="text" id="username" name="username" autofocus="autofocus" class="form-control" placeholder="User" >
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" >
+                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
 	</body>
 </html>
