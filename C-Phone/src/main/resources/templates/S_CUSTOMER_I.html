@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
     <title>顧客登録</title>
-		<link rel="stylesheet" href="../static/css/style.css">
+		<!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+		<link th:href="@{/css/style.css}" rel="stylesheet"/>
   </head>
 
   <body>
@@ -25,7 +26,8 @@
         <h1>顧客登録
         </h1>
       </div>
-        <form action="＃" method="get" class="row">
+        <!-- <form th:action="@{/customer}"  action="＃" method="get" class="row"> -->
+         <form th:action="@{/customer}" th:object="${customerForm}" method="post">
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="items">
                     <label for="f-name">姓</label>

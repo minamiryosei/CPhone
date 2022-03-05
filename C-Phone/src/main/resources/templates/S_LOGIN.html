@@ -3,7 +3,8 @@
  	<head>
 		<meta charset="UTF-8">
 		<title>ログイン</title>
-		<link rel="stylesheet" href="../static/css/style.css">
+		
+		<link th:href="@{/css/style.css}" rel="stylesheet"/>
 	</head>
 <body>
 	<header>
@@ -22,16 +23,17 @@
 
 		<div class="loginbox">
 			<h1>ログイン</h1>
-			<form>
+			<form th:action="@{/login}" method="post">
 			<p>ユーザーネーム</p>
-			<input type="text" name="" placeholder="名前入力">
+			<input type="text" id="username" name="username" placeholder="名前入力">
 			<p>パスワード</p>
-			<input type="text" name="" placeholder="パスワード入力">
+			<input type="text" id="password" name="password" placeholder="パスワード入力">
 			<input type="submit" name="" value="ログイン">
 			<a href="#">パスワード忘れた方はこちらへ</a>
 			<input type="submit" name="" value="新規登録">
 			</form>
 			
-		</div>
+		</div> 
+		
 	</body>
 </html>
