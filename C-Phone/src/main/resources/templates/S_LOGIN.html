@@ -3,11 +3,11 @@
  	<head>
 		<meta charset="UTF-8">
 		<title>ログイン</title>
-		<!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+		
 		<link th:href="@{/css/style.css}" rel="stylesheet"/>
 	</head>
 <body>
-<!-- 	<header>
+	<header>
 
   	<h1 class="headline">
       <a>C-Phone</a>
@@ -23,29 +23,17 @@
 
 		<div class="loginbox">
 			<h1>ログイン</h1>
-			<form>
+			<form th:action="@{/login}" method="post">
 			<p>ユーザーネーム</p>
-			<input type="text" name="" placeholder="名前入力">
+			<input type="text" id="username" name="username" placeholder="名前入力">
 			<p>パスワード</p>
-			<input type="text" name="" placeholder="パスワード入力">
+			<input type="text" id="password" name="password" placeholder="パスワード入力">
 			<input type="submit" name="" value="ログイン">
 			<a href="#">パスワード忘れた方はこちらへ</a>
 			<input type="submit" name="" value="新規登録">
 			</form>
 			
-		</div> -->
-		   <div class="container">
-        <div class="card card-container">
-
-            <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
-            <p id="profile-name" class="profile-name-card"></p>
-            <form class="form-signin" role="form" id="login" th:action="@{/login}" method="post">
-                <span id="reauth-email" class="reauth-email"></span>
-                <input type="text" id="username" name="username" autofocus="autofocus" class="form-control" placeholder="User" >
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password" >
-                <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Sign in</button>
-            </form>
-        </div>
-    </div>
+		</div> 
+		
 	</body>
 </html>

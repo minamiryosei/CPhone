@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>TOP画面</title>
-<link rel="stylesheet" href="../static/css/style.css">
+<link th:href="@{/css/style.css}" rel="stylesheet"/>
 </head>
 <body>
 	<header>
@@ -15,12 +15,13 @@
         <a href="#">TOP</a>
       </li>
       <li class="nav-list-item">ユーザー名</li>
-      <li class="nav-list-item"><a href="#">ログアウト</a></li>
+      <li><form th:action="@{/logout}" name="logout" method="POST">
+      <a href="javascript:logout.submit()">ログアウト</a></form></li>
     </ul>
   </header>
 	
 	<div class="oya_c_regi">
-		<button class="btn c_regi c_regi-border" id="c_regi" type="button">顧客登録</button>
+		<button onclick="location.href='./S_CUSTOMER_I.html'"  class="btn c_regi c_regi-border" id="c_regi" type="button">顧客登録</button>
 		</div>
 		<form id="s_form" action="サイト">
 		<input id="s_box"  name="s" type="text" placeholder="" />
@@ -28,3 +29,4 @@
 		</form>	
 </body>
 </html>
+
