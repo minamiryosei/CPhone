@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+@import "https://use.fontawesome.com/releases/v5.13.0/css/all.css";
+
+* {
+  margin:0; padding:0;
+}
+
+body{
+  background-color: #D7EEFF;
+  font-family: sans-serif;
+}
+
+header {
+  height: 55px;
+  width: 100%;
+  padding: 15px 0;
+  background-color: #85b9dd;
+  color: white;
+}
+
+header .headline{
+    line-height: 50px;
+    float: left;
+    font-size: 30px;
+    margin-left: 100px;
+}
+.nav-list {
+    line-height: 50px;
+    float: right;
+    margin-left: 30px;
+    list-style: none;
+}
+.nav-list-item {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+}
+
+.btn-wrap{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.btn-tel{
+  font-size: 100px;
+  color: rgb(22, 141, 101);
+}
+
+.btn-contact{
+  font-size: 100px;
+  color: rgb(209, 33, 33);
+}
+
+table{
+  width: 90%;
+  border-collapse:separate;
+  border-spacing: 0;
+  margin: 5%;
+}
+
+.emp{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#829ebc,#225588);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 10%;
+  padding: 10px 0;
+}
+
+.noemp{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 10%;
+  padding: 10px 0;
+  background-color: white;
+}
+
+table th{
+  border-top: 1px solid #a8b7c5;
+}
+
+table th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #a8b7c5;
+}
+
+table td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+table tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+table tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+.sub-title{
+  margin-left: 5%;
+}
+
+.log{
+  border: 1px solid black;
+  width: 80%;
+  margin: 1% auto;
+  background-color: white;
+}
