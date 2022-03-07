@@ -21,7 +21,9 @@
   </header>
 	
 	<div class="oya_c_regi">
-		<button onclick="location.href='./S_CUSTOMER_I.html'"  class="btn c_regi c_regi-border" id="c_regi" type="button">顧客登録</button>
+		<form th:action= "@{/customer/create}" method="GET">
+		<button  class="btn c_regi c_regi-border" id="c_regi" type="submit">顧客登録</button>
+		</form>
 		</div>
 		<form id="s_form" action="サイト">
 		<input id="s_box"  name="s" type="text" placeholder="" />
@@ -29,4 +31,3 @@
 		</form>	
 </body>
 </html>
-
