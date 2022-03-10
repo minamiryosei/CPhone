@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
@@ -23,19 +22,19 @@
     
     <div class="container">
       <div class="row">
-        <h1>顧客登録
-        </h1>
+        <h1>顧客登録</h1>
       </div>
-        <!-- <form th:action="@{/customer}"  action="＃" method="get" class="row"> -->
-         <form th:action="@{/customer/create}" th:object="${customerRequest}" method="post">
+        <!-- <form th:action="#"  action="＃" method="post" class="row" th:action="{/customer/create}"> -->
+        <!-- <form class="row g-3"   > -->
+         <form th:action="@{/customer/create}" th:object="${customerRequest}" method="post"> 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="items">
                     <label for="f-name">姓</label>
-                    <input type="text" id="f-name" name="f-name" th:field="*{name}" class="form-control" autofocus required>
+                    <input type="text" id="f-name"  name="firstname" class="form-control" autofocus required>
                 </div>
                 <div class="items">
                   <label for="l-name">名</label>
-                  <input type="text" id="l-name" name="l-name" class="form-control" autofocus required>
+                  <input type="text" id="l-name"  name="lastname" class="form-control" autofocus required>
                 </div>
                 <div class="items">
                   <label>性別</label>
@@ -50,45 +49,47 @@
                 </div>
                 <div class="items">
                   <label for="post-code">郵便番号</label>
-                  <input type="text" id="post-code" name="post-code" class="form-control" required>
+                  <input type="text" id="post-code"  name="postcode" class="form-control" required>
                 </div>
                 <div class="items">
                   <label for="post-code">都道府県</label>
-                  <input type="text" id="postcode" name="post-code" class="form-control" required>
+                  <input type="text" id="postcode"  name="address1" class="form-control" required>
                 </div>
                 <div class="items">
                   <label for="city">市区町村</label>
-                  <input type="text" id="city" name="city" class="form-control" required>
+                  <input type="text" id="city"  name="address2" class="form-control" required>
                 </div>
                 <div class="items">
                   <label for="address">番地</label>
-                  <input type="text" id="address" name="address" class="form-control" required>
+                  <input type="text" id="address"  name="address3" class="form-control" required>
                 </div>
                 <div class="items">
                   <label for="tel">電話番号</label>
-                  <input type="tel" id="tel" name="tel" class="form-control" required>
+                  <input type="text" id="tel"  name="phonenumber" class="form-control" required>
                 </div>
                 <div class="items">
                     <label for="email">メールアドレス</label>
-                    <input type="email" id="email" name="email" th:field="*{email}" class="form-control" required>
+                    <input type="email" id="email"  name="mail"  class="form-control" required>
                 </div>
                 <div class="items">
                   <label for="products">契約商品</label>
-                  <input type="text" id="products" name="products" class="form-control" required>
+                  <input type="text" id="products"  name="products" class="form-control" required>
                 </div>
-              <div class="items">
+              <!-- <div class="items">
                 <label for="person">担当者</label>
-                <input type="person" id="person" name="person" class="form-control" required>
-              </div>
+                <input type="text" id="person"  name="person" class="form-control" required>
+              </div> -->
               <div class="items">
                 <label for="email">備考</label>
-                <textarea rows="5" cols="80" style="width: 75%;"></textarea>
+                <textarea rows="5" name="remarks" cols="80" style="width: 75%;"></textarea>
               </div>
             <div class="oya-btn">
-              <button type="submit" class="btn-primary btn-primary--radius btn-primary--shadow">登録</button>
+              <button th:action="@{/customer/submit}" type="submit" class="btn-primary btn-primary--radius btn-primary--shadow">登録</button>
+              
+
             </div>
             </div>
-        </form>
+        </form> 
       </div>
   </body>
 </html>

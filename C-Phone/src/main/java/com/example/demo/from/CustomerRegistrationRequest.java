@@ -8,11 +8,15 @@ import lombok.Data;
 @Data
 
 public class CustomerRegistrationRequest implements Serializable {
+	
+	private Integer user_id;
 
     private String lastname;
 
 
 	private String firstname;
+	
+	private Integer radio;
 
 
 	private String phonenumber;
@@ -24,9 +28,6 @@ public class CustomerRegistrationRequest implements Serializable {
 	private String mail;
 	
 
-	private int abc;
-
-
 	private String address1;
 	
 
@@ -36,5 +37,8 @@ public class CustomerRegistrationRequest implements Serializable {
 	private String address3;
 	
 
-	private int product;
+	private Integer products;
+	
+	
+	private String remarks;
 }

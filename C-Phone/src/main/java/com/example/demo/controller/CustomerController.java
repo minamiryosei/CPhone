@@ -1,12 +1,14 @@
 package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.demo.entity.User;
 import com.example.demo.from.CustomerRegistrationRequest;
 import com.example.demo.service.CustomerRegistrationService;
 
@@ -22,15 +24,36 @@ public class CustomerController {
         return "S_CUSTOMER_I";
         
     }
-    
+
        
     @RequestMapping(value = "/customer/create", method = RequestMethod.POST)
-    public String create(@ModelAttribute CustomerRegistrationRequest customerRequest, Model model) {
+    public String create(@ModelAttribute CustomerRegistrationRequest customerRequest, Model model ,@AuthenticationPrincipal User user) {
         // ユーザー情報の登録
+    	customerRequest.setUser_id(user.getId());
     	customerService.insert(customerRequest);
-        return "redirect:S_CUSTOMER_LIST";
+        return "S_CUSTOMER_COMP";
+//        return "redirect:S_CUSTOMER_COMP";
     }
 }
+        
+//    @GetMapping("/customer/create")
+//    public String displayAdd() {
+////        model.addAttribute("customerRequest", new CustomerRegistrationRequest());
+//        return "S_CUSTOMER_I";
+//       
+//    }
+//    
+//       
+//    @RequestMapping(value = "/customer/create", method = RequestMethod.POST)
+//    public String create(@ModelAttribute CustomerRegistrationRequest customerRequest, Model model) {
+//        // ユーザー情報の登録
+//    
+////    	customerService.insert(customerRequest);
+//        return "redirect:S_CUSTOMER_LIST";
+//    }
+//}
+//
+//CustomerRegistrationService customerService;
 
 
 

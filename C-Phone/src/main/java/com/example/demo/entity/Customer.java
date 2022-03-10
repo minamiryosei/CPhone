@@ -3,6 +3,7 @@ package com.example.demo.entity;
 import java.io.Serializable;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +14,7 @@ import lombok.Data;
 
 //ユーザー情報Entity
 @Data
-//@Entity//エンティティクラスのアノテーション
+@Entity//エンティティクラスのアノテーション
 @Table(name="customer_detail")//テーブル名の指定
 public class Customer implements Serializable{
 
@@ -23,23 +24,17 @@ public class Customer implements Serializable{
 	private Integer customerId;
 	
 	@Column(name="last_name")//DB上のカラム名を指定する
-	private String lastName;
+	private String lastname;
 
 	@Column(name="first_name")
-	private String firstName;
-
-	@Column(name="phone_number")
-	private String phoneNumber;
-	
-	@Column(name="post_code")
-	private String postCode;
-	
-	@Column(name="mail_address")
-	private String mail;
+	private String firstname;
 	
 	@Column(name="sex")
-	private int abc;
-
+	private Integer radio;
+	
+	@Column(name="post_code")
+	private String postcode;
+	
 	@Column(name="address1")
 	private String address1;
 	
@@ -48,15 +43,21 @@ public class Customer implements Serializable{
 	
 	@Column(name="address3")
 	private String address3;
+
+	@Column(name="phone_number")
+	private String phonenumber;
+	
+	@Column(name="mail_address")
+	private String mail;
 	
 	@Column(name="product_id")
-	private int product;
+	private Integer products;
 	
 	@Column(name="notes")
-	private String notes;
+	private String remarks;
 	
 	@Column(name="user_id")
-	private String userid;
+	private Integer user_id;
 	
 }
 

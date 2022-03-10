@@ -16,39 +16,51 @@ import com.example.demo.repository.CustomerRepository;
 public class CustomerRegistrationService {
 	@Autowired
     CustomerRepository customerRepository;
+	
 
     public List<Customer> findAll() {
         return customerRepository.findAll();
     }
 
-    //ポイント①
+    
     public void insert(CustomerRegistrationRequest customerRequest) {
+    	System.out.println(customerRequest);
 
     	customerRepository.save(CreateCustomer(customerRequest));
+    	
     }
 
-    //ポイント②
+    
     public void update(Customer customer) {
         customerRepository.save(customer);
     }
 
-    //ポイント③
+    
     public void delete(Integer id) {
         customerRepository.deleteById(id);
     }
 
-    //ポイント④
+    
     public Optional<Customer> selectById(Integer id) {
         return customerRepository.findById(id);
     }
     private Customer CreateCustomer(CustomerRegistrationRequest customerRequest) {
         
     	Customer customer = new Customer();
-    	customer.setLastName(customerRequest.getLastname());
-    	customer.setFirstName(customerRequest.getFirstname());
     	
-//    	customer.setAddress(customerRequest.getAddress());
-//    	customer.setPhone(customerRequest.getPhone());
+    	customer.setLastname(customerRequest.getLastname());
+    	customer.setFirstname(customerRequest.getFirstname());
+    	customer.setRadio(customerRequest.getRadio());
+    	customer.setPostcode(customerRequest.getPostcode());
+    	customer.setAddress1(customerRequest.getAddress1());
+    	customer.setAddress2(customerRequest.getAddress2());
+    	customer.setAddress3(customerRequest.getAddress3());
+    	customer.setPhonenumber(customerRequest.getPhonenumber());
+    	customer.setMail(customerRequest.getMail());
+    	customer.setProducts(customerRequest.getProducts());
+    	customer.setRemarks(customerRequest.getRemarks());
+    	customer.setMail(customerRequest.getMail());
+    	customer.setUser_id(customerRequest.getUser_id());
     	
         return customer;
     }
