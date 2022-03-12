@@ -12,10 +12,10 @@
     </h1>
     <ul class="nav-list">
       <li class="nav-list-item">
-        <a href="#">TOP</a>
+        <a href="/top">TOP</a>
       </li>
       <li class="nav-list-item">ユーザー名</li>
-      <li><form th:action="@{/logout}" name="logout" method="POST">
+      <li ><form th:action="@{/logout}" name="logout" method="POST">
       <a href="javascript:logout.submit()">ログアウト</a></form></li>
     </ul>
   </header>
@@ -26,9 +26,10 @@
 		<a href="/customer/create">顧客登録</a>
 		<!-- </form> -->
 		</div>
-		<form id="s_form" action="サイト">
-		<input id="s_box"  name="s" type="text" placeholder="" />
-		<input id="s_botton" type="submit" value="検索" /> 
-		</form>	
+		<form th:action="@{/search}" id="s_form" method="get">
+			<input id="s_box"  name="s" type="text" placeholder="" />
+			<button id="s_botton" type="submit">検索</button>
+			</form>
+		
 </body>
 </html>

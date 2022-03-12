@@ -26,6 +26,14 @@ public class UserController {
 	public String top(){
 		return "S_TOP";
 	}
+	
+//	@GetMapping("/")
+//	public String top(){
+//		return "S_TOP";
+//	}
+	
+	
+	
 
 
 }

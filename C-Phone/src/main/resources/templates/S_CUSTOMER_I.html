@@ -7,18 +7,22 @@
   </head>
 
   <body>
-    <header>
-      <h1 class="headline">
-        <a>C-Phone</a>
-      </h1>
-      <ul class="nav-list">
-        <li class="nav-list-item">
-          <a href="#">TOP</a>
-        </li>
-        <li class="nav-list-item">ユーザー名</li>
-        <li class="nav-list-item"><a href="#">ログアウト</a></li>
-      </ul>
-    </header>
+  	<header>
+  	<h1 class="headline">
+      <a>C-Phone</a>
+    </h1>
+    <ul class="nav-list">
+      <li class="nav-list-item">
+        <a href="/top">TOP</a></li>
+      <li class="nav-list-item">ユーザー名</li>
+      <!-- <li th:action="@{/logout}" name="logout" method="POST">
+      <a href="javascript:logout.submit()">ログアウト<class="nav-list-item"></li> -->
+      
+      <!-- <form th:action="@{/logout}" name="logout" method="POST">
+      <a href="javascript:logout.submit()">ログアウト</a></form> -->
+      
+    </ul>
+  </header>
     
     <div class="container">
       <div class="row">
@@ -71,10 +75,51 @@
                     <label for="email">メールアドレス</label>
                     <input type="email" id="email"  name="mail"  class="form-control" required>
                 </div>
-                <div class="items">
+                <!-- <div class="items">
                   <label for="products">契約商品</label>
                   <input type="text" id="products"  name="products" class="form-control" required>
+                </div> -->
+                <div  class="items">
+                <label for="products">契約商品</label>
+                <select>
+                <option th:each="product : ${product}" th:object="${product}"
+                
+                th:text="*{id}  + *{product_name}">
+                </option>
+                </select>
                 </div>
+	    
+	    
+                <!-- <select>
+                
+	  <a th:each="product : ${product}" th:object="${product}">
+	    <a th:text="*{product_name}"></td>
+	    
+
+	</select> -->
+                
+    	<!-- <select>
+      <tr th:each="product : ${product}" th:object="${product}">
+      <td th:text="*{product_name}"></td>
+    </tr>
+  </select> -->
+               <!--  <tbody>
+                <tr th:each="product : ${product}" th:object="${product}">
+                <td th:text="*{product_name}"></td>
+                </tr>
+                </tbody> -->
+                <!-- <div  class="items">
+				
+                <label for="products">契約商品</label>
+				<select name="products">
+				<option  label= 1 >1</option>
+				<option  label="2">2</option>
+				<option  label="選択肢3">フレシャスウォーター</option>
+				<option  label="選択肢4">エルピオ</option>
+				<option  label="選択肢5">ジニーエナジー</option>
+				</select>
+				</div> -->
+				
               <!-- <div class="items">
                 <label for="person">担当者</label>
                 <input type="text" id="person"  name="person" class="form-control" required>

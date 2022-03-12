@@ -1,13 +1,18 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.example.demo.entity.Customer;
+import com.example.demo.entity.Products;
 import com.example.demo.entity.User;
 import com.example.demo.from.CustomerRegistrationRequest;
 import com.example.demo.service.CustomerRegistrationService;
@@ -18,23 +23,137 @@ public class CustomerController {
     @Autowired
     CustomerRegistrationService customerService;
     
-    @RequestMapping(value = "/customer/create", method = RequestMethod.GET)
+//    @GetMapping("/customer/create")
+//    public String product(Model model) {
+//    List<Products> product= customerService.findAll();
+//    model.addAttribute("product", product);
+//	return "product";
+//    }
+    
+    
+//    @RequestMapping(value = "/customer/create",method = RequestMethod.GET)
+//    public String product(@RequestParam String product_name, Model model) {
+//    List<Products> product= customerService.findAll();
+//    model.addAttribute("product", product);
+//	return "product";
+//    }
+    
+    
+    
+    @GetMapping("/customer/create")
     public String displayAdd(Model model) {
         model.addAttribute("customerRequest", new CustomerRegistrationRequest());
-        return "S_CUSTOMER_I";
-        
-    }
 
-       
+        List<Products> product= customerService.findAll();
+        model.addAttribute("product", product);
+//    	return "product";
+      return "S_CUSTOMER_I";
+        }
+    
+    
+    
+    @RequestMapping(value = "/top", method = RequestMethod.GET)
+    public String top(Model model) {
+        return "S_TOP";
+    }
+    
     @RequestMapping(value = "/customer/create", method = RequestMethod.POST)
     public String create(@ModelAttribute CustomerRegistrationRequest customerRequest, Model model ,@AuthenticationPrincipal User user) {
         // ユーザー情報の登録
     	customerRequest.setUser_id(user.getId());
+    	customerRequest.setProducts(customerRequest.getProducts());
     	customerService.insert(customerRequest);
         return "S_CUSTOMER_COMP";
 //        return "redirect:S_CUSTOMER_COMP";
     }
+    
+    /**
+	 * ユーザー情報詳細画面を表示
+	 * @param id 表示するユーザーID
+	 * @param model Model
+	 * @return ユーザー情報詳細画面
+	 */
+    @RequestMapping("/customer/{id}")
+    public String displayDetail(@ModelAttribute CustomerRegistrationRequest customerDetail, Model model) {
+      return "S_DETAIL";
+    }
+    
+    @GetMapping("/search")
+	  public String displayList(Model model) {
+	    List<Customer> customerlist = customerService.searchAll();
+	    model.addAttribute("customerlist", customerlist);
+	    return "S_CUSTOMER_LIST";
+	}
+    
+
+    
+    
+    
+    /**
+     * ユーザー編集画面を表示
+     * @param id 表示するユーザーID
+     * @param model Model
+     * @return ユーザー編集画面
+     */
+//    @GetMapping("/user/{id}/edit")
+//    public String displayEdit(@PathVariable Long id, Model model) {
+//      User user = userService.findById(id);
+//      UserUpdateRequest userUpdateRequest = new UserUpdateRequest();
+//      userUpdateRequest.setId(user.getId());
+//      userUpdateRequest.setName(user.getName());
+//      userUpdateRequest.setPhone(user.getPhone());
+//      userUpdateRequest.setAddress(user.getAddress());
+//      customer.setLastname(customerRequest.getLastname());
+//  	customer.setFirstname(customerRequest.getFirstname());
+//  	customer.setRadio(customerRequest.getRadio());
+//  	customer.setPostcode(customerRequest.getPostcode());
+//  	customer.setAddress1(customerRequest.getAddress1());
+//  	customer.setAddress2(customerRequest.getAddress2());
+//  	customer.setAddress3(customerRequest.getAddress3());
+//  	customer.setPhonenumber(customerRequest.getPhonenumber());
+//  	customer.setMail(customerRequest.getMail());
+//  	customer.setProducts(customerRequest.getProducts());
+//  	customer.setRemarks(customerRequest.getRemarks());
+//  	customer.setMail(customerRequest.getMail());
+//  	customer.setUser_id(customerRequest.getUser_id());
+//      
+//      model.addAttribute("userUpdateRequest", userUpdateRequest);
+//      return "user/edit";
+//    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+//    @Controller
+//    public class DropdownController {
+//
+//      @RequestMapping("/dropdown")
+//      public String demo(Model model) {
+//
+//        Map<String, String> colors = new LinkedHashMap<String, String>();
+//
+//        colors.put("001", "あか");
+//        colors.put("002", "きいろ");
+//        colors.put("003", "みどり");
+//        colors.put("004", "オレンジ");
+//
+//        model.addAttribute("colors", colors);
+//        model.addAttribute("colorCd", "004");
+//
+//        return "dropdown"; // テンプレートファイル名
+//      }
+    
 }
+
+
+
         
 //    @GetMapping("/customer/create")
 //    public String displayAdd() {

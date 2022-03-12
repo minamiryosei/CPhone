@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>登録完了</title>
-		<link rel="stylesheet" href="../static/css/style.css">
-    </head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>登録完了</title>
+<link th:href="@{/css/style2.css}" rel="stylesheet"/>
+</head>
 <body>
   <header>
   	<h1 class="headline">
@@ -12,7 +12,7 @@
     </h1>
     <ul class="nav-list">
       <li class="nav-list-item">
-        <a href="#">TOP</a>
+        <a href="/top">TOP</a>
       </li>
       <li class="nav-list-item">ユーザー名</li>
       <li class="nav-list-item"><a href="#">ログアウト</a></li>
@@ -21,7 +21,7 @@
   
 <div class="oya_box">
   <div class="f_box">登録完了</div>
-  <a href="" class="t_box">TOP画面へ</a>
+  <a href="/top" class="t_box">TOP画面へ</a>
 </div>
 </body>
 </html>

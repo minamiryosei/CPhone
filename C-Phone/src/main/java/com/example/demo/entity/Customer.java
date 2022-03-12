@@ -61,6 +61,7 @@ public class Customer implements Serializable{
 	
 }
 
+
 //	@Override
 //	public String getID() {
 //		// TODO 自動生成されたメソッド・スタブ

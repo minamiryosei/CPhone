@@ -8,8 +8,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.entity.Customer;
+import com.example.demo.entity.Products;
 import com.example.demo.from.CustomerRegistrationRequest;
 import com.example.demo.repository.CustomerRepository;
+import com.example.demo.repository.productsRrepository;
 
 @Service
 @Transactional
@@ -17,11 +19,13 @@ public class CustomerRegistrationService {
 	@Autowired
     CustomerRepository customerRepository;
 	
+	@Autowired
+	productsRrepository productsRrepository;
 
-    public List<Customer> findAll() {
+    public List<Customer> searchAll() {
         return customerRepository.findAll();
     }
-
+    
     
     public void insert(CustomerRegistrationRequest customerRequest) {
     	System.out.println(customerRequest);
@@ -29,11 +33,19 @@ public class CustomerRegistrationService {
     	customerRepository.save(CreateCustomer(customerRequest));
     	
     }
+    
+    public void update(CustomerRegistrationRequest customerRequest) {
+
+    	customerRepository.save(CreateCustomer(customerRequest));
+    }
+//    public void update(Customer customer) {
+//        customerRepository.save(customer);
+//    }
 
     
-    public void update(Customer customer) {
-        customerRepository.save(customer);
-    }
+//    public void update(CustomerRegistrationRequest customerRequest) {
+//        customerRepository.save(customer);
+//    }
 
     
     public void delete(Integer id) {
@@ -44,6 +56,11 @@ public class CustomerRegistrationService {
     public Optional<Customer> selectById(Integer id) {
         return customerRepository.findById(id);
     }
+    
+    public List<Products> findAll() {
+        return productsRrepository.findAll();
+    }
+    
     private Customer CreateCustomer(CustomerRegistrationRequest customerRequest) {
         
     	Customer customer = new Customer();
