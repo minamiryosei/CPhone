@@ -12,8 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.example.demo.service.UserDetailsServiceImpl;
-
 /**
  * SpringSecurityを利用するための設定クラス
  * ログイン処理でのパラメータ、画面遷移や認証処理でのデータアクセス先を設定する
@@ -24,7 +22,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	//UserDetailsServiceを利用出来るように＠Autowiredしておく
     @Autowired
-    private UserDetailsServiceImpl userDetailsService;
+//    private UserDetailsServiceImpl userDetailsService;
 
 //認証用パスワードはハッシュ化して扱うためPasswordをハッシュ化する際に必要なBCryptPasswordEncoder()を返すメソッドを作成しておく。
     @Bean
@@ -82,6 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
          //ログアウト時はログイン画面に遷移する
          .logout().logoutSuccessUrl("/login").permitAll();
     }
+
     
 
 //    /**

@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8">
     <title>顧客編集</title>
-		<link rel="stylesheet" href="../static/css/style.css">
-    </head>
+		<link th:href="@{/css/style.css}" rel="stylesheet"/>
+  </head>
 
   <body>
     <header>
@@ -13,7 +12,7 @@
       </h1>
       <ul class="nav-list">
         <li class="nav-list-item">
-          <a href="#">TOP</a>
+          <a href="/top">TOP</a>
         </li>
         <li class="nav-list-item">ユーザー名</li>
         <li class="nav-list-item"><a href="#">ログアウト</a></li>
@@ -24,69 +23,83 @@
       <div class="row">
         <h1>顧客編集
         </h1>
-      </div>
-        <form action="＃" method="get" class="row">
+      
+    <div th:if="${validationError}" th:each="error : ${validationError}">
+      <label class="text-danger" th:text="${error}"></label>
+    </div>
+      
+       <form th:action="@{/customer/update}" th:object="${customerUpdateRequest}" method="post">
+         <input type="hidden" th:field="*{id}" /> 
+         <input type="hidden" th:field="*{user_id}" /> 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="items">
                     <label for="f-name">姓</label>
-                    <input type="text" id="f-name" name="f-name" class="form-control" autofocus required>
+                    <input type="text" id="f-name"  name="firstname" class="form-control" th:field="*{lastname}">
                 </div>
                 <div class="items">
                   <label for="l-name">名</label>
-                  <input type="text" id="l-name" name="l-name" class="form-control" autofocus required>
+                  <input type="text" id="l-name"  name="lastname" class="form-control" th:field="*{firstname}">
                 </div>
                 <div class="items">
                   <label>性別</label>
                   <div class="sex_radio">
                       <label class="radio-inline">
-                          <input type="radio" name="radio" value="1" required>男性
+                          <input type="radio" value="1" th:field="*{radio}">男性
                       </label>
                       <label class="radio-inline">
-                          <input type="radio" name="radio" value="2" required>女性
+                          <input type="radio" value="2" th:field="*{radio}">女性
                       </label>
                   </div>
                 </div>
                 <div class="items">
                   <label for="post-code">郵便番号</label>
-                  <input type="text" id="post-code" name="post-code" class="form-control" required>
+                  <input type="text" id="post-code"  name="postcode" class="form-control" th:field="*{postcode}">
                 </div>
                 <div class="items">
                   <label for="post-code">都道府県</label>
-                  <input type="text" id="postcode" name="post-code" class="form-control" required>
+                  <input type="text" id="postcode"  name="address1" class="form-control" th:field="*{address1}">
                 </div>
                 <div class="items">
                   <label for="city">市区町村</label>
-                  <input type="text" id="city" name="city" class="form-control" required>
+                  <input type="text" id="city"  name="address2" class="form-control" th:field="*{address2}">
                 </div>
                 <div class="items">
                   <label for="address">番地</label>
-                  <input type="text" id="address" name="address" class="form-control" required>
+                  <input type="text" id="address"  name="address3" class="form-control" th:field="*{address3}">
                 </div>
                 <div class="items">
                   <label for="tel">電話番号</label>
-                  <input type="tel" id="tel" name="tel" class="form-control" required>
+                  <input type="text" id="tel"  name="phonenumber" class="form-control" th:field="*{phonenumber}">
                 </div>
                 <div class="items">
                     <label for="email">メールアドレス</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
+                    <input type="email" id="email"  name="mail"  class="form-control" th:field="*{mail}">
                 </div>
-                <div class="items">
-                  <label for="products">契約商品</label>
-                  <input type="text" id="products" name="products" class="form-control" required>
+              
+                   
                 </div>
-              <div class="items">
-                <label for="person">担当者</label>
-                <input type="person" id="person" name="person" class="form-control" required>
-              </div>
+                <div  class="items">
+                <label for="products">契約商品</label>
+                <select name="products">
+                <option th:each="product : ${product}" th:value="${product.id}"  th:object="${product}" 
+                th:text=" *{product_name}" >
+                </option>
+                </select>
+                </div>
+              
               <div class="items">
                 <label for="email">備考</label>
-                <textarea rows="5" cols="80" style="width: 75%;"></textarea>
+                <textarea rows="5" name="remarks" cols="80" style="width: 75%;"></textarea>
               </div>
             <div class="oya-btn">
-              <button type="submit" class="btn-primary btn-primary--radius btn-primary--shadow">登録</button>
+               　<button th:action="@{/customer/update}" type="submit" class="btn-primary btn-primary--radius btn-primary--shadow">保存</button>
+               <button th:action="@{/S_DETAIL/{id}(id=*{id})}" type="submit" class="btn-primary btn-primary--radius btn-primary--shadow">キャンセル</button>
+             	
             </div>
+
+ 
+            </form>
             </div>
-        </form>
       </div>
   </body>
 </html>

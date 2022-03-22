@@ -14,18 +14,15 @@
       <li class="nav-list-item">
         <a href="/top">TOP</a>
       </li>
-      <li class="nav-list-item">ユーザー名</li>
-      <li ><form th:action="@{/logout}" name="logout" method="POST">
+      <li class="nav-list-item">
+		<a href="/customer/create">顧客登録</a>
+		</li>
+      <li class="nav-list-item">
+      <form th:action="@{/logout}" name="logout" method="POST">
       <a href="javascript:logout.submit()">ログアウト</a></form></li>
     </ul>
   </header>
-	
-	<div class="oya_c_regi">
-		<!-- <form th:action= "@{/customer/create}" method="GET"> -->
-		<!-- <button  class="btn c_regi c_regi-border" id="c_regi" type="submit">顧客登録</button> -->
-		<a href="/customer/create">顧客登録</a>
-		<!-- </form> -->
-		</div>
+
 		<form th:action="@{/search}" id="s_form" method="get">
 			<input id="s_box"  name="s" type="text" placeholder="" />
 			<button id="s_botton" type="submit">検索</button>

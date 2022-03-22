@@ -1,27 +1,33 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>削除完了</title>
-		<link rel="stylesheet" href="../static/css/style.css">
-    </head>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>削除完了</title>
+<link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
 <body>
-  <header>
+	<header>
   	<h1 class="headline">
       <a>C-Phone</a>
     </h1>
     <ul class="nav-list">
       <li class="nav-list-item">
-        <a href="#">TOP</a>
+        <a href="/top">TOP</a>
       </li>
-      <li class="nav-list-item">ユーザー名</li>
-      <li class="nav-list-item"><a href="#">ログアウト</a></li>
+      <li class="nav-list-item">
+		<a href="/customer/create">顧客登録</a>
+		</li>
+      <li class="nav-list-item">
+      <form th:action="@{/logout}" name="logout" method="POST">
+      <a href="javascript:logout.submit()">ログアウト</a></form></li>
     </ul>
   </header>
   
-<div class="oya_box">
-  <div class="f_box">削除完了</div>
-  <a href="" class="t_box">TOP画面へ</a>
+ <div class="loginbox2">
+ <div class="lg-2">削除完了</div>
+
+  <a href="/top"><button type="button">TOP画面へ</button></a>
+  <a href="/search"><button type="button">顧客一覧へ</button></a>
 </div>
 </body>
 </html>

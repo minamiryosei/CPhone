@@ -7,6 +7,6 @@ import com.example.demo.entity.Products;
 
 
 @Repository
-public interface productsRrepository extends JpaRepository<Products, Integer>{
+public interface ProductsRrepository extends JpaRepository<Products, Integer>{
 	
 	}

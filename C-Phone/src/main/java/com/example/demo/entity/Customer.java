@@ -60,34 +60,3 @@ public class Customer implements Serializable{
 	private Integer user_id;
 	
 }
-
-
-//	@Override
-//	public String getID() {
-//		// TODO 自動生成されたメソッド・スタブ
-//		return null;
-//	}
-//
-//	@Override
-//	public boolean isCritical() {
-//		// TODO 自動生成されたメソッド・スタブ
-//		return false;
-//	}
-//
-//	@Override
-//	public byte[] getEncodedValue() {
-//		// TODO 自動生成されたメソッド・スタブ
-//		return null;
-//	}
-
-//	@Override
-//	public Collection<? extends GrantedAuthority> getAuthorities(){
-//
-//	return null;
-
-//}
-
-
-
-//	@Column(name="delflg")
-//	private Integer delflg;

@@ -67,6 +67,7 @@ button.btn {
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+  margin-top: 30px;
 }
 
 #s_box{
@@ -121,7 +122,7 @@ table th:last-child{
 table th{
   text-align: center;
   color:white;
-  background: linear-gradient(#829ebc,#225588);
+  background: linear-gradient(#5D99FF,#225588);
   border-left: 1px solid #3c6690;
   border-top: 1px solid #3c6690;
   border-bottom: 1px solid #3c6690;
@@ -202,6 +203,7 @@ h1{
   margin-left: 20%;
 }
 
+
 input:required{
   background: #ffcdd2;
 }
@@ -227,35 +229,40 @@ input:focus{
 .oya-btn{
   display: flex;
   justify-content: center;
+margin-top: 20px;
+  
 }
 
 .btn-primary {
-  width: 100px;
-  height: 40px;
-  color: #fff;
-  background-color: #eb6100;
-  border-bottom: 5px solid #b84c00;
+  border: none;
+ outline: none;
+ height: 40px;
+ width: 15%;
+ background: #fb2525;
+ color: #fff;
+ font-size: 18px;
+ border-radius: 20px;
+   margin-right: 50px;
 }
 
 .btn-primary:hover {
-  margin-top: 3px;
-  color: #fff;
-  background: #f56500;
-  border-bottom: 2px solid #b84c00;
+  cursor: pointer;
+ background: #ffc107;
+ color: #000;
 }
 
 .btn-primary--radius {
   border-radius: 1vh;
 }
 
-.btn-primary--shadow {
+ .btn-primary--shadow {
   -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
   box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
-}
+} 
 
-.emp{
+/* .emp{
   background-color: red;
-}
+} */
 
 .oya_box{
   display: flex;
@@ -334,7 +341,6 @@ input:focus{
 
 h1{
 	margin: 0;
-	padding: o 0 20px;
 	text-align: center;
 	font-size: 22px;
 }
@@ -453,7 +459,6 @@ label {
 
 h1{
 	margin: 0;
-	padding: 0 0 20px;
 	text-align: center;
 	font-size: 22px;
 }
@@ -538,4 +543,58 @@ h1{
 .sex_radio{
   display: flex;
   align-items: center;
+}
+
+.loginbox2 button[type="button"]:hover
+{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+	
+}
+.loginbox2 button[type="button"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	width: 98%;
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	margin-bottom: 15px;
+}
+
+
+.lg-2 {
+
+	text-align:center;
+	font-size: 20px;
+	}
+
+.loginbox3 button[type="button"]:hover
+{
+	cursor: pointer;
+	background: #ffc107;
+	color: #000;
+	
+}
+.loginbox3 button[type="button"]
+{
+	border: none;
+	outline: none;
+	height: 40px;
+	width: 20%;
+	background: #fb2525;
+	color: #fff;
+	font-size: 18px;
+	border-radius: 20px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+
+}
+
+.loginbox3 {
+	align-items: center;
+	margin-left: 600px;
 }

@@ -13,14 +13,12 @@
     </h1>
     <ul class="nav-list">
       <li class="nav-list-item">
-        <a href="/top">TOP</a></li>
-      <li class="nav-list-item">ユーザー名</li>
-      <!-- <li th:action="@{/logout}" name="logout" method="POST">
-      <a href="javascript:logout.submit()">ログアウト<class="nav-list-item"></li> -->
-      
-      <!-- <form th:action="@{/logout}" name="logout" method="POST">
-      <a href="javascript:logout.submit()">ログアウト</a></form> -->
-      
+        <a href="/top">TOP</a>
+      </li>
+
+      <li class="nav-list-item">
+      <form th:action="@{/logout}" name="logout" method="POST">
+      <a href="javascript:logout.submit()">ログアウト</a></form></li>
     </ul>
   </header>
     
@@ -28,8 +26,7 @@
       <div class="row">
         <h1>顧客登録</h1>
       </div>
-        <!-- <form th:action="#"  action="＃" method="post" class="row" th:action="{/customer/create}"> -->
-        <!-- <form class="row g-3"   > -->
+   
          <form th:action="@{/customer/create}" th:object="${customerRequest}" method="post"> 
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="items">
@@ -44,7 +41,7 @@
                   <label>性別</label>
                   <div class="sex_radio">
                       <label class="radio-inline">
-                          <input type="radio" name="radio" value="1" required>男性
+                          <input type="radio" name="radio" value="1"  required>男性
                       </label>
                       <label class="radio-inline">
                           <input type="radio" name="radio" value="2" required>女性
@@ -81,57 +78,20 @@
                 </div> -->
                 <div  class="items">
                 <label for="products">契約商品</label>
-                <select>
-                <option th:each="product : ${product}" th:object="${product}"
-                
-                th:text="*{id}  + *{product_name}">
+                <select name="products">
+                <option th:each="product : ${product}" th:value="${product.id}"  th:object="${product}" 
+                th:text=" *{product_name}" >
                 </option>
                 </select>
                 </div>
-	    
-	    
-                <!-- <select>
-                
-	  <a th:each="product : ${product}" th:object="${product}">
-	    <a th:text="*{product_name}"></td>
-	    
-
-	</select> -->
-                
-    	<!-- <select>
-      <tr th:each="product : ${product}" th:object="${product}">
-      <td th:text="*{product_name}"></td>
-    </tr>
-  </select> -->
-               <!--  <tbody>
-                <tr th:each="product : ${product}" th:object="${product}">
-                <td th:text="*{product_name}"></td>
-                </tr>
-                </tbody> -->
-                <!-- <div  class="items">
-				
-                <label for="products">契約商品</label>
-				<select name="products">
-				<option  label= 1 >1</option>
-				<option  label="2">2</option>
-				<option  label="選択肢3">フレシャスウォーター</option>
-				<option  label="選択肢4">エルピオ</option>
-				<option  label="選択肢5">ジニーエナジー</option>
-				</select>
-				</div> -->
-				
-              <!-- <div class="items">
-                <label for="person">担当者</label>
-                <input type="text" id="person"  name="person" class="form-control" required>
-              </div> -->
+	
               <div class="items">
                 <label for="email">備考</label>
-                <textarea rows="5" name="remarks" cols="80" style="width: 75%;"></textarea>
+                <textarea rows="3" name="remarks" cols="80" style="width: 75%;"></textarea>
               </div>
             <div class="oya-btn">
               <button th:action="@{/customer/submit}" type="submit" class="btn-primary btn-primary--radius btn-primary--shadow">登録</button>
               
-
             </div>
             </div>
         </form> 

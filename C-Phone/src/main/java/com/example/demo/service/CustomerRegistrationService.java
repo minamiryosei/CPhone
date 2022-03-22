@@ -7,11 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.CustomerUpdateRequest;
 import com.example.demo.entity.Customer;
 import com.example.demo.entity.Products;
 import com.example.demo.from.CustomerRegistrationRequest;
 import com.example.demo.repository.CustomerRepository;
-import com.example.demo.repository.productsRrepository;
+import com.example.demo.repository.ProductsRrepository;
 
 @Service
 @Transactional
@@ -20,12 +21,19 @@ public class CustomerRegistrationService {
     CustomerRepository customerRepository;
 	
 	@Autowired
-	productsRrepository productsRrepository;
-
+	ProductsRrepository productsRepository;
+	
+	/**
+	 * ユーザー情報 全検索
+	 * @return 検索結果
+	 */
     public List<Customer> searchAll() {
         return customerRepository.findAll();
     }
     
+    public List<Products> findAll() {
+        return productsRepository.findAll();
+    }
     
     public void insert(CustomerRegistrationRequest customerRequest) {
     	System.out.println(customerRequest);
@@ -33,34 +41,54 @@ public class CustomerRegistrationService {
     	customerRepository.save(CreateCustomer(customerRequest));
     	
     }
+
+    /**
+     * ユーザー情報 主キー検索
+     * @return 検索結果
+     */
+    public Customer findById(Integer customerId) {
+      return customerRepository.findById(customerId).get();
+    }
     
     public void update(CustomerRegistrationRequest customerRequest) {
-
-    	customerRepository.save(CreateCustomer(customerRequest));
+        customerRepository.save(CreateCustomer(null));
     }
-//    public void update(Customer customer) {
-//        customerRepository.save(customer);
-//    }
-
     
-//    public void update(CustomerRegistrationRequest customerRequest) {
-//        customerRepository.save(customer);
-//    }
+    /**
+     * ユーザー情報 更新
+     * @param user ユーザー情報
+     */
+    public void update(CustomerUpdateRequest customerUpdateRequest) {
+    	Customer customer = findById(customerUpdateRequest.getId());
+    	customer.setLastname(customerUpdateRequest.getLastname());
+	  	customer.setFirstname(customerUpdateRequest.getFirstname());
+	  	customer.setRadio(customerUpdateRequest.getRadio());
+	  	customer.setPostcode(customerUpdateRequest.getPostcode());
+	  	customer.setAddress1(customerUpdateRequest.getAddress1());
+	  	customer.setAddress2(customerUpdateRequest.getAddress2());
+	  	customer.setAddress3(customerUpdateRequest.getAddress3());
+	  	customer.setPhonenumber(customerUpdateRequest.getPhonenumber());
+	  	customer.setMail(customerUpdateRequest.getMail());
+	  	customer.setProducts(customerUpdateRequest.getProducts());
+	  	customer.setRemarks(customerUpdateRequest.getRemarks());
+	  	customer.setMail(customerUpdateRequest.getMail());
+	  	customer.setUser_id(customerUpdateRequest.getUser_id());
+      customerRepository.save(customer);
+    }
 
-    
+    /**
+     * ユーザー情報 物理削除
+     * @param id ユーザーID
+     */
     public void delete(Integer id) {
-        customerRepository.deleteById(id);
+      Customer customer = findById(id);
+      customerRepository.delete(customer);
     }
 
     
     public Optional<Customer> selectById(Integer id) {
         return customerRepository.findById(id);
     }
-    
-    public List<Products> findAll() {
-        return productsRrepository.findAll();
-    }
-    
     private Customer CreateCustomer(CustomerRegistrationRequest customerRequest) {
         
     	Customer customer = new Customer();

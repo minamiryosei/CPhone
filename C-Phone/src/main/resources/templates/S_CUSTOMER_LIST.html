@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>顧客一覧</title>
 <link th:href="@{/css/style.css}" rel="stylesheet"/>
-
 </head>
 <body>
 	<header>
@@ -15,22 +14,30 @@
       <li class="nav-list-item">
         <a href="/top">TOP</a>
       </li>
-      <li class="nav-list-item">ユーザー名</li>
-      <li ><form th:action="@{/logout}" name="logout" method="POST">
+      <li class="nav-list-item">
+		<a href="/customer/create">顧客登録</a>
+		</li>
+
+       <li class="nav-list-item">
+      <form th:action="@{/logout}" name="logout" method="POST">
       <a href="javascript:logout.submit()">ログアウト</a></form></li>
+ 
     </ul>
   </header>
+  
+
+	<div th:fragment="search">
+		<form th:action="@{/search}" id="s_form" method="get">
+		<input id="s_box"  name="s" type="text" placeholder="" />
+		<button id="s_botton" type="submit">検索</button>
+		</form>	
+	</div>
 	
-	<div class="oya_c_regi">
-	<a href="/customer/create">顧客登録</a>
-	<!-- <button class="btn c_regi c_regi-border" id="c_regi" type="button">顧客登録</button> -->
-  </div>
-	<form id="s_form" action="サイト名">
-	<input id="s_box"  name="s" type="text" placeholder="" />
-	<input id="s_botton" type="submit" value="検索" /> 
-	</form>
-	
-	<table class="c-list">
+	<div class="container">
+      <div class="row">
+        <h1>顧客一覧</h1>
+      </div>
+  <table class="c-list">
 	<thead>
 	  <tr>
 	    <th>No</th>
@@ -43,12 +50,19 @@
 	  <tbody>
 	  <tr th:each="customer : ${customerlist}" th:object="${customer}">
 	    <td th:text="*{customerId}"></td>
-	    <td th:text="*{lastname} + *{firstname}"></td>
-	    <td th:text="*{products}"></td>
-	    <td><a th:href="@{/detail/{id}(id=*{customerId})}">詳細</a></td>
+	    <td th:text="*{lastname} + ' ' + *{firstname}"></td>
+	    <td th:text="NURO光"  th:if="*{products == 1}" ></td>
+	    <td th:text="コスモウォーター"  th:if="*{products == 2}"></td>
+	    <td th:text="ジニーエナジー"  th:if="*{products == 3}"></td>
+	    <td th:text="エルピオガス"  th:if="*{products == 4}"></td>
+	    <td th:text="レモンガス"  th:if="*{products == 5}"></td>
+	    <td><a th:href="@{/S_DETAIL/{id}(id=*{customerId})}">詳細</a></td>
 	    <td>架電</td>
 	  </tr>
 	  </tbody>
 	</table>
+
+                   
+</div>
 </body>
 </html>
