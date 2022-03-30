@@ -2,7 +2,6 @@ package com.example.demo.Controller;
 
 
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -64,12 +63,8 @@ public class TodoController {
     todoService.deleteAllTodo();
     return "redirect:/";
   }
-  public class Tod {
-		public static void main(String[] args) {
-			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-			  System.out.println(timestamp);
-		}
-		}
+  
   
 }
+
 

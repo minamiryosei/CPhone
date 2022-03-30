@@ -37,14 +37,15 @@ public class TodoService {
 
   // 追加(Todoの全件削除)
   public void deleteAllTodo() {
-    List<Todo> allTodo = todoRepository.findAll();
-    List<Todo> doneList = new ArrayList<>();
-    // doneがtrueかどうかを判定。trueのものをdoneListに追加する。
-    for (Todo todo : allTodo) {
-      if (todo.getDone()) {
-        doneList.add(todo);
-      }
-    }
-    todoRepository.deleteAll(doneList);
-  }
+	    List<Todo> allTodo = todoRepository.findAll();
+	    List<Todo> doneList = new ArrayList<>();
+	    // doneがtrueかどうかを判定。trueのものをdoneListに追加する。
+	    for (Todo todo : allTodo) {
+	      if (todo.isDone()) {
+	        doneList.add(todo);
+	      }
+	    }
+	    todoRepository.deleteAll(doneList);
+	  }
+  
 }
